@@ -1,0 +1,175 @@
+----------------------------------
+Tool: Grok 3
+Date: 2025-05-23
+----------------------------------
+
+Me: 我需要让用户可以问天气问题，比如“明天会下雨吗？”。
+AI: 我帮你写两个函数：parse_weather_question() 和 generate_weather_response()。但由于 hands-on-ai 在 Colab 中无法连接 LLM，我用一个简化版：
+
+def parse_weather_question(question):
+    question = question.lower()
+    result = {"location": None, "time_period": None, "attribute": None}
+
+    if " in " in question:
+        parts = question.split(" in ")
+        location = parts[-1].strip("?")
+        result["location"] = location
+    else:
+        result["location"] = "Sydney"
+
+    if "today" in question:
+        result["time_period"] = "today"
+    elif "tomorrow" in question:
+        result["time_period"] = "tomorrow"
+    else:
+        result["time_period"] = "today"
+
+    if "rain" in question:
+        result["attribute"] = "precipitation"
+    elif "temperature" in question or "hot" in question or "cold" in question:
+        result["attribute"] = "temperature"
+    else:
+        result["attribute"] = "weather"
+
+    return result
+
+def generate_weather_response(parsed_question, weather_data):
+    if not parsed_question or not weather_data:
+        print("无法回答：问题或数据不可用。")
+        print("\n按 Enter 继续...")
+        input()
+        return
+
+    location = parsed_question.get("location", "Unknown")
+    time_period = parsed_question.get("time_period", "today")
+    attribute = parsed_question.get("attribute", "weather")
+
+    if time_period is None:
+        time_period = "today"
+
+    today_str = time.strftime("%Y-%m-%d")
+    try:
+        tomorrow = time.strftime("%Y-%m-%d", time.localtime(time.time() + 86400))
+    except Exception:
+        tomorrow = today_str
+
+    time_map = {
+        "today": today_str,
+        "tomorrow": tomorrow
+    }
+    target_date = time_map.get(time_period.lower(), today_str)
+
+    if target_date == today_str and attribute != "precipitation":
+        if attribute == "temperature":
+            answer = f"{location} 现在的温度是 {weather_data['current']['temperature']}°C。"
+        elif attribute == "humidity":
+            answer = f"{location} 现在的湿度是 {weather_data['current']['humidity']}%。"
+        else:
+            answer = f"{location} 现在的天气是 {weather_data['current']['condition']}，温度 {weather_data['current']['temperature']}°C。"
+    else:
+        for day in weather_data["forecast"]:
+            if day["date"] == target_date:
+                if attribute == "precipitation":
+                    chance = day["precipitation_chance"]
+                    answer = f"{location} 在 {target_date} 的降雨概率是 {chance}%。"
+                elif attribute == "temperature":
+                    answer = f"{location} 在 {target_date} 的最高温度是 {day['max_temp']}°C，最低温度是 {day['min_temp']}°C。"
+                else:
+                    answer = f"{location} 在 {target_date} 的天气是 {day['condition']}，最高温度 {day['max_temp']}°C。"
+                break
+        else:
+            answer = f"抱歉，我找不到 {location} 在 {time_period} 的 {attribute} 数据。"
+
+    print("\n回答：")
+    print(answer)
+    print("\n按 Enter 继续...")
+    input()
+
+----------------------------------
+Tool: Grok 3
+Date: 2025-05-23
+----------------------------------
+
+Me: I need to let users ask weather questions, like "Will it rain tomorrow?"
+AI: I'll help you write two functions: parse_weather_question() and generate_weather_response(). Since hands-on-ai cannot connect to an LLM in Colab, I'll use a simplified version:
+
+def parse_weather_question(question):
+    """Parse a user's question, like 'Will it rain tomorrow?'"""
+    question = question.lower()
+    result = {"location": None, "time_period": None, "attribute": None}
+
+    if " in " in question:
+        parts = question.split(" in ")
+        location = parts[-1].strip("?")
+        result["location"] = location
+    else:
+        result["location"] = "Sydney"
+
+    if "today" in question:
+        result["time_period"] = "today"
+    elif "tomorrow" in question:
+        result["time_period"] = "tomorrow"
+    else:
+        result["time_period"] = "today"
+
+    if "rain" in question:
+        result["attribute"] = "precipitation"
+    elif "temperature" in question or "hot" in question or "cold" in question:
+        result["attribute"] = "temperature"
+    else:
+        result["attribute"] = "weather"
+
+    return result
+
+def generate_weather_response(parsed_question, weather_data):
+    """Generate a natural language answer based on the question."""
+    if not parsed_question or not weather_data:
+        print("Unable to answer: missing question or data.")
+        print("\nPress Enter to continue...")
+        input()
+        return
+
+    location = parsed_question.get("location", "Unknown")
+    time_period = parsed_question.get("time_period", "today")
+    attribute = parsed_question.get("attribute", "weather")
+
+    if time_period is None:
+        time_period = "today"
+
+    today_str = time.strftime("%Y-%m-%d")
+    try:
+        tomorrow = time.strftime("%Y-%m-%d", time.localtime(time.time() + 86400))
+    except Exception:
+        tomorrow = today_str
+
+    time_map = {
+        "today": today_str,
+        "tomorrow": tomorrow
+    }
+    target_date = time_map.get(time_period.lower(), today_str)
+
+    if target_date == today_str and attribute != "precipitation":
+        if attribute == "temperature":
+            answer = f"The current temperature in {location} is {weather_data['current']['temperature']}°C."
+        elif attribute == "humidity":
+            answer = f"The current humidity in {location} is {weather_data['current']['humidity']}%."
+        else:
+            answer = f"The current weather in {location} is {weather_data['current']['condition']} with a temperature of {weather_data['current']['temperature']}°C."
+    else:
+        for day in weather_data["forecast"]:
+            if day["date"] == target_date:
+                if attribute == "precipitation":
+                    chance = day["precipitation_chance"]
+                    answer = f"The chance of rain in {location} on {target_date} is {chance}%."
+                elif attribute == "temperature":
+                    answer = f"In {location} on {target_date}, the high will be {day['max_temp']}°C and the low will be {day['min_temp']}°C."
+                else:
+                    answer = f"The weather in {location} on {target_date} is expected to be {day['condition']} with a high of {day['max_temp']}°C."
+                break
+        else:
+            answer = f"Sorry, I couldn't find {attribute} data for {location} on {time_period}."
+
+    print("\nAnswer:")
+    print(answer)
+    print("\nPress Enter to continue...")
+    input()
