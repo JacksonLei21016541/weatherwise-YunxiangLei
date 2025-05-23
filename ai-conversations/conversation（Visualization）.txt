@@ -1,0 +1,235 @@
+----------------------------------
+Tool: Grok 3
+Date: 2025-05-23
+----------------------------------
+
+Me: 我需要添加图表来展示温度和降雨概率。请分成两个函数来实现，一个画温度图，一个画降雨图。
+AI: 我帮你写两个函数：create_temperature_visualisation() 和 create_precipitation_visualisation()：
+
+def create_temperature_visualisation(weather_data):
+    if not weather_data or not weather_data["forecast"]:
+        print("无法显示温度图：数据不可用。")
+        print("\n按 Enter 继续...")
+        input()
+        return
+
+    labels = [day["date"] for day in weather_data["forecast"]]
+    max_temps = [day["max_temp"] for day in weather_data["forecast"]]
+    min_temps = [day["min_temp"] for day in weather_data["forecast"]]
+
+    chart_config = {
+        "type": "line",
+        "data": {
+            "labels": labels,
+            "datasets": [
+                {
+                    "label": "最高温度 (°C)",
+                    "data": max_temps,
+                    "borderColor": "#FF6384",
+                    "fill": False
+                },
+                {
+                    "label": "最低温度 (°C)",
+                    "data": min_temps,
+                    "borderColor": "#36A2EB",
+                    "fill": False
+                }
+            ]
+        },
+        "options": {
+            "title": {
+                "display": True,
+                "text": f"温度趋势 - {weather_data['location']}"
+            },
+            "scales": {
+                "y": {
+                    "beginAtZero": False,
+                    "title": {
+                        "display": True,
+                        "text": "温度 (°C)"
+                    }
+                },
+                "x": {
+                    "title": {
+                        "display": True,
+                        "text": "日期"
+                    }
+                }
+            }
+        }
+    }
+
+    print("\n温度趋势图：")
+    print(chart_config)
+    print("\n按 Enter 继续...")
+    input()
+
+def create_precipitation_visualisation(weather_data):
+    if not weather_data or not weather_data["forecast"]:
+        print("无法显示降雨概率图：数据不可用。")
+        print("\n按 Enter 继续...")
+        input()
+        return
+
+    labels = [day["date"] for day in weather_data["forecast"]]
+    precip_chances = [day["precipitation_chance"] for day in weather_data["forecast"]]
+
+    chart_config = {
+        "type": "bar",
+        "data": {
+            "labels": labels,
+            "datasets": [
+                {
+                    "label": "降雨概率 (%)",
+                    "data": precip_chances,
+                    "backgroundColor": "#36A2EB"
+                }
+            ]
+        },
+        "options": {
+            "title": {
+                "display": True,
+                "text": f"降雨概率 - {weather_data['location']}"
+            },
+            "scales": {
+                "y": {
+                    "beginAtZero": True,
+                    "max": 100,
+                    "title": {
+                        "display": True,
+                        "text": "降雨概率 (%)"
+                    }
+                },
+                "x": {
+                    "title": {
+                        "display": True,
+                        "text": "日期"
+                    }
+                }
+            }
+        }
+    }
+
+    print("\n降雨概率图：")
+    print(chart_config)
+    print("\n按 Enter 继续...")
+    input()
+
+----------------------------------
+Tool: Grok 3
+Date: 2025-05-23
+----------------------------------
+
+Me: I need to add charts to display temperature and precipitation probability. Please split it into two functions to implement it, one to draw the temperature graph and one to draw the rainfall graph.
+AI: I'll help you write two functions: create_temperature_visualisation() and create_precipitation_visualisation():
+
+def create_temperature_visualisation(weather_data):
+    """Create a chart for temperature trends."""
+    if not weather_data or not weather_data["forecast"]:
+        print("Unable to display temperature chart: data unavailable.")
+        print("\nPress Enter to continue...")
+        input()
+        return
+
+    labels = [day["date"] for day in weather_data["forecast"]]
+    max_temps = [day["max_temp"] for day in weather_data["forecast"]]
+    min_temps = [day["min_temp"] for day in weather_data["forecast"]]
+
+    chart_config = {
+        "type": "line",
+        "data": {
+            "labels": labels,
+            "datasets": [
+                {
+                    "label": "Max Temperature (°C)",
+                    "data": max_temps,
+                    "borderColor": "#FF6384",
+                    "fill": False
+                },
+                {
+                    "label": "Min Temperature (°C)",
+                    "data": min_temps,
+                    "borderColor": "#36A2EB",
+                    "fill": False
+                }
+            ]
+        },
+        "options": {
+            "title": {
+                "display": True,
+                "text": f"Temperature Trends - {weather_data['location']}"
+            },
+            "scales": {
+                "y": {
+                    "beginAtZero": False,
+                    "title": {
+                        "display": True,
+                        "text": "Temperature (°C)"
+                    }
+                },
+                "x": {
+                    "title": {
+                        "display": True,
+                        "text": "Date"
+                    }
+                }
+            }
+        }
+    }
+
+    print("\nTemperature Trends Chart:")
+    print(chart_config)
+    print("\nPress Enter to continue...")
+    input()
+
+def create_precipitation_visualisation(weather_data):
+    """Create a chart for precipitation probability."""
+    if not weather_data or not weather_data["forecast"]:
+        print("Unable to display precipitation chart: data unavailable.")
+        print("\nPress Enter to continue...")
+        input()
+        return
+
+    labels = [day["date"] for day in weather_data["forecast"]]
+    precip_chances = [day["precipitation_chance"] for day in weather_data["forecast"]]
+
+    chart_config = {
+        "type": "bar",
+        "data": {
+            "labels": labels,
+            "datasets": [
+                {
+                    "label": "Precipitation Chance (%)",
+                    "data": precip_chances,
+                    "backgroundColor": "#36A2EB"
+                }
+            ]
+        },
+        "options": {
+            "title": {
+                "display": True,
+                "text": f"Precipitation Probability - {weather_data['location']}"
+            },
+            "scales": {
+                "y": {
+                    "beginAtZero": True,
+                    "max": 100,
+                    "title": {
+                        "display": True,
+                        "text": "Precipitation Chance (%)"
+                    }
+                },
+                "x": {
+                    "title": {
+                        "display": True,
+                        "text": "Date"
+                    }
+                }
+            }
+        }
+    }
+
+    print("\nPrecipitation Probability Chart:")
+    print(chart_config)
+    print("\nPress Enter to continue...")
+    input()
