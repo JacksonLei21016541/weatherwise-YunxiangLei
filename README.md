@@ -60,5 +60,3 @@ The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`,
 - **Input a City**: Enter a city name when prompted (e.g., "Sydney").
 - **Navigate the Menu**: Use the numbered menu to select options like viewing the current weather, forecast, or charts.
 - **Ask Questions**: Select the "Ask a Weather Question" option and type questions like "Will it rain tomorrow?"
-- **Change Units**: Switch between metric and imperial units using the "Change Units" option.
-- **View Alerts and Insights**: The dashboard will show weather alerts (e.g., heavy rain warnings) and personalized insights (e.g., "Consider indoor activities today").
