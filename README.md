@@ -15,10 +15,6 @@ The application combines a user-friendly interface with a conversational chatbot
 - **Weather Forecast**: Displays a 5-day forecast with max/min temperatures, conditions, and rain chances.
 - **Data Visualization**: Includes temperature trend charts (line graph) and precipitation probability charts (bar graph).
 - **Natural Language Queries**: Users can ask weather-related questions, such as "Will it rain tomorrow in Sydney?"
-- **Extensions** (added enhancements):
-  - **Weather Alerts**: Warns users of extreme conditions like heavy rain or high temperatures.
-  - **Customizable Units**: Allows switching between metric (Celsius, km/h) and imperial (Fahrenheit, mph) units.
-  - **Custom Weather Insights**: Provides personalized suggestions, e.g., "It's a great day for outdoor activities!"
 
 I used two AI tools to assist in development: **ChatGPT** for project management and translation support, and **Grok** (by xAI) as the primary tool for coding, debugging, and providing suggestions. The project was built in **Google Colab**, using Python libraries like `fetch-my-weather` for weather data, `pyinputplus` for user input, and rule-based parsing for natural language queries.
 
