@@ -57,12 +57,8 @@ The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`,
    - Choose options from the menu (e.g., view current weather, forecast, charts, ask a question, or exit).
 
 ### Step 4: Interact with the Application
-Input a City: Enter a city name when prompted (e.g., "Sydney").
-Navigate the Menu: Use the numbered menu to select options like viewing the current weather, forecast, or charts.
-Ask Questions: Select the "Ask a Weather Question" option and type questions like "Will it rain tomorrow?"
-Change Units: Switch between metric and imperial units using the "Change Units" option.
-View Alerts and Insights: The dashboard will show weather alerts (e.g., heavy rain warnings) and personalized insights (e.g., "Consider indoor activities today").
-Troubleshooting
-Invalid City Name: If the city name is invalid, the app will prompt you to try again. Use the format "City, Country" (e.g., "Sydney, Australia") for best results.
-No Internet: Ensure you have a stable internet connection, as the app fetches weather data online.
-Errors in Colab: If you encounter errors, restart the runtime (Runtime > Restart runtime) and rerun all cells.
+- **Input a City**: Enter a city name when prompted (e.g., "Sydney").
+- **Navigate the Menu**: Use the numbered menu to select options like viewing the current weather, forecast, or charts.
+- **Ask Questions**: Select the "Ask a Weather Question" option and type questions like "Will it rain tomorrow?"
+- **Change Units**: Switch between metric and imperial units using the "Change Units" option.
+- **View Alerts and Insights**: The dashboard will show weather alerts (e.g., heavy rain warnings) and personalized insights (e.g., "Consider indoor activities today").
