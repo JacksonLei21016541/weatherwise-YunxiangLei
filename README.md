@@ -47,14 +47,14 @@ The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`,
 2. Wait for the installation to complete. You’ll see output messages confirming that the packages are installed.
 
 ### Step 3: Run the Code
-Run the subsequent code cells in order. Each cell contains a part of the program:
-Imports: Imports necessary libraries (os, time, fetch_my_weather, hands_on_ai, pyinputplus).
-Functions: Defines functions like get_weather_data(), display_welcome(), parse_weather_question(), etc.
-Main Program: The main() function runs the application.
-The final cell (if __name__ == "__main__": main()) starts the application.
-Follow the prompts in the output:
-Enter a city name (e.g., "Sydney").
-Choose options from the menu (e.g., view current weather, forecast, charts, ask a question, change units, or exit).
+1. Run the subsequent code cells in order. Each cell contains a part of the program:
+   - **Imports**: Imports necessary libraries (`os`, `time`, `fetch_my_weather`, `hands_on_ai`, `pyinputplus`).
+   - **Functions**: Defines functions like `get_weather_data()`, `display_welcome()`, `parse_weather_question()`, etc.
+   - **Main Program**: The `main()` function runs the application.
+2. The final cell (`if __name__ == "__main__": main()`) starts the application.
+3. Follow the prompts in the output:
+   - Enter a city name (e.g., "Sydney").
+   - Choose options from the menu (e.g., view current weather, forecast, charts, ask a question, change units, or exit).
 
 ### Step 4: Interact with the Application
 Input a City: Enter a city name when prompted (e.g., "Sydney").
