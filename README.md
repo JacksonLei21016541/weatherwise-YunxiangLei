@@ -1,63 +1,49 @@
-# 🌦️ WeatherWise Template
+# WeatherWise Project
 
-Welcome to the **WeatherWise Assignment Starter Template**! This repository helps you kickstart your project by combining Python, weather APIs, data visualisation, and AI-assisted development. 🤖📊
+## Project Overview
 
-![Build With AI](https://img.shields.io/badge/Built_with-AI-blueviolet?logo=openai)
-![Python](https://img.shields.io/badge/Made_with-Python-3776AB?logo=python)
-![Visualisation](https://img.shields.io/badge/Includes-Visualisations-orange?logo=plotly)
+The **WeatherWise** project is a weather application designed to provide users with a simple yet powerful way to check weather information. As a beginner in programming, I created this project to learn how to build a functional app while leveraging AI tools for assistance. The goal was to develop an application that allows users to:
 
----
+- Check the current weather for a specified city.
+- View weather forecasts for up to 5 days.
+- Visualize temperature trends and precipitation probability through charts.
+- Ask natural language questions like "Will it rain tomorrow?" and receive answers.
 
-## 🚀 How to Use This Template
+The application combines a user-friendly interface with a conversational chatbot, following a hybrid approach that caters to both visual and text-based users. Key features include:
 
-1. Click **"Use this template"** on GitHub to create your own copy.
-2. Rename your repository to something like `weatherwise-jane-doe`.
-3. Clone it and start developing in `starter_notebook.ipynb`.
+- **Current Weather Display**: Shows temperature, condition, humidity, wind speed, and more.
+- **Weather Forecast**: Displays a 5-day forecast with max/min temperatures, conditions, and rain chances.
+- **Data Visualization**: Includes temperature trend charts (line graph) and precipitation probability charts (bar graph).
+- **Natural Language Queries**: Users can ask weather-related questions, such as "Will it rain tomorrow in Sydney?"
+- **Extensions** (added enhancements):
+  - **Weather Alerts**: Warns users of extreme conditions like heavy rain or high temperatures.
+  - **Customizable Units**: Allows switching between metric (Celsius, km/h) and imperial (Fahrenheit, mph) units.
+  - **Custom Weather Insights**: Provides personalized suggestions, e.g., "It's a great day for outdoor activities!"
 
----
+I used two AI tools to assist in development: **ChatGPT** for project management and translation support, and **Grok** (by xAI) as the primary tool for coding, debugging, and providing suggestions. The project was built in **Google Colab**, using Python libraries like `fetch-my-weather` for weather data, `pyinputplus` for user input, and rule-based parsing for natural language queries.
 
-## 📁 Folder Structure
+## Setup Instructions
 
-- `starter_notebook.ipynb` — Main notebook to build your project.
-- `ASSIGNMENT.md` — Full assignment specification.
-- `ai-conversations/` — Save your `.txt` AI conversations here.
-- `resources/` — Guides, prompting tips, and AI technique examples.
-- `submission/` — Files to help you finalise your submission:
-  - `checklist-md.md` — Submission checklist
-  - `reflection.md` — Write your 300–500 word project reflection
-  - `one-page-summary.md` — (Optional) Your own summary of key ideas or process
+To run the WeatherWise project, follow these steps to set up the environment and execute the code. The project is designed to run in **Google Colab**, a free cloud-based Jupyter Notebook environment.
 
----
+### Prerequisites
+- A web browser with internet access.
+- A Google account to use Google Colab.
+- Basic knowledge of Python (helpful but not required).
 
-📄 **Quick Overview:**  
-A one-page summary of the full assignment is available in [`resources/assignment-summary.md`](resources/assignment-summary.md).
+### Step 1: Open the Project in Google Colab
+1. Download the `WeatherWise_MyProject (Extensions).ipynb` file from the GitHub repository.
+2. Go to [Google Colab](https://colab.research.google.com/).
+3. Click **File** > **Upload Notebook**.
+4. Upload the `WeatherWise_MyProject (Extensions).ipynb` file.
+5. The notebook will open in Google Colab, ready for execution.
 
----
+### Step 2: Install Required Tools
+The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`, and `pyinputplus`. These are installed in the first code cell of the notebook. Follow these steps:
 
-## 📓 Submission Checklist
-
-✅ Complete all required functions  
-✅ Include at least 5 AI conversations in `ai-conversations/`  
-✅ Document your intentional prompting  
-✅ Fill in your project reflection in `submission/reflection-template.md`  
-✅ Zip your project and upload it to the LMS  
-
----
-
-🧠 AI Conversations  
-Save your AI interactions in the `ai-conversations/` folder.  
-See `ai-conversations/how-to-log-ai-conversations.md` for details.
-
-
---
-## 🧠 Need Help with AI Prompts?
-
-Check out:
-Check out:
-- `resources/ai-tips-tricks.md` — Prompting tips and pitfalls
-- `resources/sample-prompting-journey.md` — Full example of AI-enhanced development
-- `resources/prompts-by-method-step.md` — Prompts aligned with the 6-step dev process
-- `resources/before-after-example.md` — Required: Show how your prompting improved AI-generated code
-
-
-Good luck and have fun! 💡🌤️
+1. Run the first code cell in the notebook, which contains:
+   ```python
+   # Install the required tools
+   !pip install fetch-my-weather
+   !pip install hands-on-ai
+   !pip install pyinputplus
