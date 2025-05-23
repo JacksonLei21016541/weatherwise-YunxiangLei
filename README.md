@@ -60,3 +60,8 @@ The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`,
 - **Input a City**: Enter a city name when prompted (e.g., "Sydney").
 - **Navigate the Menu**: Use the numbered menu to select options like viewing the current weather, forecast, or charts.
 - **Ask Questions**: Select the "Ask a Weather Question" option and type questions like "Will it rain tomorrow?"
+
+### Troubleshooting
+- **Invalid City Name**: If the city name is invalid, the app will prompt you to try again. Use the format "City, Country" (e.g., "Sydney, Australia") for best results.
+- **No Internet**: Ensure you have a stable internet connection, as the app fetches weather data online.
+- **Errors in Colab**: If you encounter errors, restart the runtime (Runtime > Restart runtime) and rerun all cells.
