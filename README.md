@@ -54,7 +54,7 @@ The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`,
 2. The final cell (`if __name__ == "__main__": main()`) starts the application.
 3. Follow the prompts in the output:
    - Enter a city name (e.g., "Sydney").
-   - Choose options from the menu (e.g., view current weather, forecast, charts, ask a question, change units, or exit).
+   - Choose options from the menu (e.g., view current weather, forecast, charts, ask a question, or exit).
 
 ### Step 4: Interact with the Application
 Input a City: Enter a city name when prompted (e.g., "Sydney").
