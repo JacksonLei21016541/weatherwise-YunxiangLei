@@ -43,3 +43,5 @@ The project relies on three Python libraries: `fetch-my-weather`, `hands-on-ai`,
    !pip install fetch-my-weather
    !pip install hands-on-ai
    !pip install pyinputplus
+
+2.Wait for the installation to complete. You’ll see output messages confirming that the packages are installed.
